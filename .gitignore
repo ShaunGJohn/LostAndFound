@@ -1,0 +1,50 @@
+# -------------------------------
+# Node.js & Express Backend
+# -------------------------------
+
+node_modules/
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+uploads/
+logs/
+*.log
+
+# Sequelize migration temp files
+*.sqlite
+*.sqlite3
+
+# -------------------------------
+# React Frontend
+# -------------------------------
+
+client/node_modules/
+client/.env
+client/.env.local
+client/.env.development.local
+client/.env.test.local
+client/.env.production.local
+client/build/
+client/dist/
+client/.vite/
+client/.next/
+client/.cache/
+
+# -------------------------------
+# System files & Misc
+# -------------------------------
+
+.DS_Store
+Thumbs.db
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# -------------------------------
+# VS Code and IDE folders
+# -------------------------------
+
+.vscode/
+.idea/
