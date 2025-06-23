@@ -10,7 +10,7 @@ function Home() {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
 
-  const fetchItems = async () => {
+  /*const fetchItems = async () => {
     try {
       const res = await api.get(`/items/${view}`, {
         headers: {
@@ -21,12 +21,32 @@ function Home() {
     } catch (err) {
       console.error(err);
     }
-  };
+  };*/
+
+  const fetchItems = async () => {
+  try {
+    console.log("🟡 Fetching:", view);  // 👈 Add this
+    const res = await api.get(`/items/${view}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    console.log("📦 Items received:", res.data); // 👈 Add this
+    setItems(res.data);
+  } catch (err) {
+    console.error("❌ Fetch Error:", err);
+  }
+};
+
 
   useEffect(() => {
-    if (!token) navigate('/');
-    fetchItems();
-  }, [view]);
+  if (!token) {
+    navigate('/');
+  } else {
+    fetchItems(); // ✅ re-fetch when view or token changes
+  }
+}, [view, token]);
+
 
   return (
     <div>

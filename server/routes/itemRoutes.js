@@ -19,7 +19,7 @@ router.get('/lost', verifyToken, getLostItems);
 router.get('/found', verifyToken, getFoundItems);
 
 // POST: Add Lost or Found items with image upload
-//router.post('/add/lost', verifyToken, upload.single('image'), addLostItem);
-//router.post('/add/found', verifyToken, upload.single('image'), addFoundItem);
+router.post('/add/lost', verifyToken, upload.single('image'), addLostItem);
+router.post('/add/found', verifyToken, upload.single('image'), addFoundItem);
 
 module.exports = router;
