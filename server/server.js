@@ -49,7 +49,7 @@ app.use('/uploads', express.static('uploads')); // ✅ Now this is valid
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/items', require('./routes/itemRoutes'));
-
+app.use('/api/user', require('./routes/userRoutes'))
 // DB
 sequelize.sync().then(() => {
   console.log('MySQL DB Connected');

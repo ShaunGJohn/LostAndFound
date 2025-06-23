@@ -20,7 +20,12 @@ module.exports = {
         type: Sequelize.STRING,
         defaultValue: 'user'
       },
-      profilePic: Sequelize.STRING,
+      
+      profilePic: {
+  type: Sequelize.STRING,
+  allowNull: true
+},
+
       createdAt: Sequelize.DATE,
       updatedAt: Sequelize.DATE
     });
