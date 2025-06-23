@@ -83,7 +83,9 @@ function Home() {
       const res = await api.get(`/items/${view}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      setItems(res.data);
+      
+      setItems(res.data.map(i => ({ ...i, type: view })));
+
     } catch (err) {
       console.error('❌ Fetch Error:', err);
     }

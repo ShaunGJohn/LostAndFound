@@ -47,7 +47,8 @@ const {
   getLostItems,
   getFoundItems,
   addLostItem,
-  addFoundItem
+  addFoundItem,
+  getSingleItem
 } = require('../controllers/itemController');
 
 const verifyToken = require('../middlewares/authMiddleware');
@@ -87,6 +88,9 @@ router.get('/user/found', verifyToken, async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch your found items' });
   }
 });
+
+
+router.get('/:type/:id', verifyToken, getSingleItem);
 
 
 module.exports = router;

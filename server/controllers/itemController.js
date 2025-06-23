@@ -223,3 +223,21 @@ exports.addFoundItem = async (req, res) => {
     res.status(500).json({ message: 'Error adding found item' });
   }
 };
+
+
+// 📌 Get a single item for detail view
+exports.getSingleItem = async (req, res) => {
+  const { type, id } = req.params;
+  try {
+    const model = type === 'lost' ? LostItem : FoundItem;
+    const item = await model.findByPk(id);
+    if (!item) return res.status(404).json({ message: "Item not found" });
+    res.json(item);
+  } catch (err) {
+    console.error('Error fetching item:', err);
+    res.status(500).json({ message: 'Error fetching item' });
+  }
+};
+
+
+
