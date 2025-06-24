@@ -13,7 +13,8 @@ function Signup() {
     e.preventDefault();
     try {
       await api.post('/auth/signup', formData);
-      navigate('/');
+      alert("Registration Successful!")
+      navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');
     }
