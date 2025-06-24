@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import api from '../services/axios';
+import './Signup.css';
 
 function Signup() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', password: '' });
@@ -13,24 +14,36 @@ function Signup() {
     e.preventDefault();
     try {
       await api.post('/auth/signup', formData);
-      navigate('/');
+      navigate('/login');
     } catch (err) {
       setError(err.response?.data?.message || 'Signup failed');
     }
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" onChange={handleChange} />
-        <input name="email" placeholder="Email" onChange={handleChange} />
-        <input name="phone" placeholder="Phone" onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
-        <button type="submit">Create Account</button>
-      </form>
-      <p>Already have an account? <Link to="/">Login</Link></p>
+    <div className="auth-container">
+      <div className="auth-box">
+        <div className="auth-form">
+          <h4 className="highlight">Create An Account</h4>
+          <p>Create an account to post and track your lost items !!</p>
+          <h2>Sign Up</h2>
+
+          {error && <p className="error-msg">{error}</p>}
+
+          <form onSubmit={handleSubmit}>
+            <input name="name" placeholder="Name" onChange={handleChange} required />
+            <input name="email" placeholder="Email" onChange={handleChange} required />
+            <input name="phone" placeholder="Phone" onChange={handleChange} required />
+            <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+            <button type="submit" className="btn-primary">Create Account</button>
+          </form>
+
+          <p className="switch-link">Already have an account? <Link to="/">Log in</Link></p>
+        </div>
+        <div className="auth-image">
+          <img src="/images/signup.jpeg" alt="Signup" />
+        </div>
+      </div>
     </div>
   );
 }

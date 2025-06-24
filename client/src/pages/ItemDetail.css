@@ -1,0 +1,23 @@
+.item-detail-container {
+  max-width: 900px;
+  margin: auto;
+}
+
+.item-title {
+  color: #6c2eb9;
+  font-weight: 600;
+}
+
+.item-image {
+  max-height: 300px;
+  object-fit: contain;
+  border: 2px solid #eee;
+}
+
+.btn-purple {
+  background-color: #9d4edd;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-weight: 500;
+}

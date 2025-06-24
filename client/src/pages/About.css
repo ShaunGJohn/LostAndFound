@@ -1,0 +1,70 @@
+.about-container {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #f3eaff, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-container h1 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: #6c2eb9;
+  margin-bottom: 1rem;
+}
+
+.about-container p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 700px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.about-container h3 {
+  font-size: 1.5rem;
+  color: #9d4edd;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-container ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.about-container li {
+  margin-bottom: 0.75rem;
+  background-color: #f8f2ff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.about-container strong {
+  color: #6c2eb9;
+  font-weight: 600;
+}
+
+.about-container a,
+.about-container .btn {
+  margin-top: 2rem;
+  display: inline-block;
+  background-color: #9d4edd;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.about-container a:hover,
+.about-container .btn:hover {
+  background-color: #7b2cbf;
+}

@@ -2,9 +2,10 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import api from '../services/axios';
 import { AuthContext } from '../context/AuthContext';
+import './ItemDetail.css'; // Create this CSS file to style
 
 function ItemDetail() {
-  const { id, type } = useParams(); // type: lost/found
+  const { id, type } = useParams();
   const { token } = useContext(AuthContext);
   const [item, setItem] = useState(null);
   const [userItems, setUserItems] = useState([]);
@@ -65,37 +66,58 @@ function ItemDetail() {
     }
   };
 
-  if (!item) return <div>Loading...</div>;
+  if (!item) return <div className="container text-center mt-5">Loading...</div>;
 
   return (
-    <div>
-      <h2>Item Details</h2>
-      <img src={`http://localhost:5000${item.imageUrl}`} alt={item.name} width="300" />
-      <p><strong>Name:</strong> {item.name}</p>
-      <p><strong>Brand:</strong> {item.brand}</p>
-      <p><strong>Category:</strong> {item.category}</p>
-      <p><strong>Location:</strong> {item.location}</p>
-      <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString()}</p>
-      <p><strong>Code:</strong> {item.itemCode}</p>
+    <div className="container item-detail-container mt-4">
+      <div className="card shadow p-4">
+        <div className="row">
+          <div className="col-md-5 text-center">
+            <img
+              src={`http://localhost:5000${item.imageUrl}`}
+              alt={item.name}
+              className="img-fluid rounded item-image"
+            />
+          </div>
+          <div className="col-md-7">
+            <h2 className="item-title">{item.name}</h2>
+            <p><strong>Brand:</strong> {item.brand}</p>
+            <p><strong>Category:</strong> {item.category}</p>
+            <p><strong>Location:</strong> {item.location}</p>
+            <p><strong>Date:</strong> {new Date(item.date).toLocaleDateString()}</p>
+            <p><strong>Code:</strong> {item.itemCode}</p>
+          </div>
+        </div>
+      </div>
 
-      <hr />
-      <h3>{type === 'lost' ? 'I Found This' : 'Claim This'} Item</h3>
+      <div className="card shadow p-4 mt-4">
+        <h4 className="mb-3">
+          {type === 'lost' ? 'I Found This' : 'Claim This'} Item
+        </h4>
 
-      <label>
-        Select your {type === 'lost' ? 'Found' : 'Lost'} Item:
-        <select value={selectedItemId} onChange={e => setSelectedItemId(e.target.value)}>
-          <option value="">-- Select --</option>
-          {userItems.map(userItem => (
-            <option key={userItem.id} value={userItem.id}>
-              {userItem.name} (Code: {userItem.itemCode})
-            </option>
-          ))}
-        </select>
-      </label>
+        <div className="mb-3">
+          <label htmlFor="item-select" className="form-label">
+            Select your {type === 'lost' ? 'Found' : 'Lost'} item:
+          </label>
+          <select
+            className="form-select"
+            id="item-select"
+            value={selectedItemId}
+            onChange={e => setSelectedItemId(e.target.value)}
+          >
+            <option value="">-- Select --</option>
+            {userItems.map(userItem => (
+              <option key={userItem.id} value={userItem.id}>
+                {userItem.name} (Code: {userItem.itemCode})
+              </option>
+            ))}
+          </select>
+        </div>
 
-      <button onClick={handleSendRequest}>
-        {type === 'lost' ? 'I Found This Item' : 'Claim This Item'}
-      </button>
+        <button className="btn btn-purple" onClick={handleSendRequest}>
+          {type === 'lost' ? '📤 I Found This Item' : '📩 Claim This Item'}
+        </button>
+      </div>
     </div>
   );
 }

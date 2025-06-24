@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import api from '../services/axios';
 import { AuthContext } from '../context/AuthContext';
+import './Login.css';
 
 function Login() {
   const { login } = useContext(AuthContext);
@@ -23,15 +24,30 @@ function Login() {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <input name="email" placeholder="Email" onChange={handleChange} />
-        <input type="password" name="password" placeholder="Password" onChange={handleChange} />
-        <button type="submit">Log In</button>
-      </form>
-      <p>Don't have an account? <Link to="/signup">Signup</Link></p>
+    <div className="auth-container">
+      <div className="auth-box">
+        <div className="auth-form">
+          <h4 className="highlight">Log Here</h4>
+          <p>Welcome back !!</p>
+          <h2>Log In</h2>
+
+          {error && <p className="error-msg">{error}</p>}
+
+          <form onSubmit={handleSubmit}>
+            <input name="email" placeholder="Email" onChange={handleChange} required />
+            <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+            <div className="forgot">
+              <Link to="/forgot">Forgot Password?</Link>
+            </div>
+            <button type="submit" className="btn-primary">Login →</button>
+          </form>
+
+          <p className="switch-link">Don't have an account? <Link to="/signup">Sign up</Link></p>
+        </div>
+        <div className="auth-image">
+          <img src="/images/login.png" alt="Login" />
+        </div>
+      </div>
     </div>
   );
 }

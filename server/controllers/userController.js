@@ -15,8 +15,19 @@ exports.updateUser = async (req, res) => {
 };
 
 exports.uploadProfilePicture = async (req, res) => {
-  const user = await User.findByPk(req.user.id);
-  user.profilePic = `/uploads/${req.file.filename}`;
-  await user.save();
-  res.json({ profilePic: user.profilePic });
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    const user = await User.findByPk(req.user.id);
+    user.profilePic = `/uploads/${req.file.filename}`;
+    await user.save();
+
+    res.json({ profilePic: user.profilePic });
+  } catch (err) {
+    console.error("Upload Error:", err);  // log the actual error
+    res.status(500).json({ error: 'Server error during image upload' });
+  }
 };
+

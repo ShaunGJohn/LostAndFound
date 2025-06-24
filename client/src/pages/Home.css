@@ -1,0 +1,99 @@
+.landing-container {
+  background: url('../images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  color: #6c2eb9;
+  position: relative;
+}
+
+.landing-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.7); /* translucent white */
+  z-index: 0;
+}
+
+.navbar, .landing-content {
+  position: relative;
+  z-index: 1;
+}
+
+.headline {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 8rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  max-width: 600px;
+  color: #333;
+}
+
+.btn-purple {
+  background-color: #9d4edd;
+  color: white;
+  border-radius: 20px;
+  padding: 6px 20px;
+}
+
+.btn-outline-purple {
+  border: 2px solid #9d4edd;
+  color: #9d4edd;
+  border-radius: 20px;
+  padding: 6px 20px;
+}
+/* === Home Page Enhancements === */
+
+.home-container {
+  min-height: 100vh;
+  background: linear-gradient(to right, #f3eaff, #ffffff);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Card layout */
+.dashboard-card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Section heading */
+.dashboard-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #6c2eb9;
+}
+
+/* Dashboard buttons */
+.dashboard-buttons .btn {
+  border-radius: 20px;
+  font-weight: 500;
+  min-width: 150px;
+}
+
+/* Responsive alignment */
+.dashboard-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Item Grid */
+.item-grid {
+  margin-top: 2rem;
+}
+
+/* Empty State */
+.empty-text {
+  font-size: 1.2rem;
+  color: #888;
+}

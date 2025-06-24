@@ -1,0 +1,59 @@
+.profile-container {
+  padding: 2rem;
+  background: #f4f0ff;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.profile-header {
+  font-size: 2rem;
+  color: #6c2eb9;
+  margin-bottom: 2rem;
+}
+
+.profile-section {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-pic-box {
+  flex: 0 0 150px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #9d4edd;
+}
+
+.profile-info-box {
+  flex: 1;
+}
+
+.item-sections {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.item-box {
+  flex: 1;
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.request-box {
+  border-left: 4px solid #9d4edd;
+  padding: 0.5rem 1rem;
+  margin-top: 0.5rem;
+  background-color: #f9f3ff;
+  border-radius: 4px;
+}

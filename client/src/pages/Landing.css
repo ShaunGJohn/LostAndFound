@@ -1,0 +1,89 @@
+.landing-container {
+  background: linear-gradient(to bottom right, #f4e9ff, #ffffff);
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.landing-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #6c2eb9;
+}
+
+.logo-icon {
+  height: 36px;
+  margin-right: 10px;
+}
+
+.logo-text .highlight {
+  color: #9d4edd;
+}
+
+.auth-buttons .btn {
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.landing-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 10vh auto 0;
+  z-index: 2;
+  position: relative;
+}
+
+.headline {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #6c2eb9;
+}
+
+.description {
+  font-size: 1.1rem;
+  margin-top: 1rem;
+  color: #444;
+}
+
+.cta-buttons .btn {
+  font-size: 1rem;
+  padding: 10px 24px;
+  border-radius: 25px;
+}
+
+/* Landing image styling */
+.landing-image {
+  position: absolute;
+  right: 5%;
+  bottom: 0;
+  max-height: 60vh;
+  z-index: 1;
+  opacity: 0.95;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+  .landing-image {
+    display: none;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
