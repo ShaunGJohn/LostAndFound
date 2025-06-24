@@ -66,4 +66,8 @@ const LostItem = sequelize.define('LostItem', {
   timestamps: true,
 });
 
+LostItem.associate = (models) => {
+  LostItem.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
+};
+
 module.exports = LostItem;

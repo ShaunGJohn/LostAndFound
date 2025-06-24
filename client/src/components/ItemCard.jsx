@@ -71,6 +71,7 @@ function ItemCard({ item }) {
         <p>Category: {item.category}</p>
         <p>Place: {item.location}</p>
         <p>Date: {new Date(item.date).toLocaleDateString()}</p>
+        {item.user?.name && <p><strong>Posted by:</strong> {item.user.name}</p>}
       </div>
     </Link>
   );

@@ -65,4 +65,8 @@ const FoundItem = sequelize.define('FoundItem', {
   timestamps: true,
 });
 
+FoundItem.associate = (models) => {
+  FoundItem.belongsTo(models.User, { foreignKey: 'userId', as: 'user' });
+};
+
 module.exports = FoundItem;

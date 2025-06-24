@@ -149,12 +149,15 @@ exports.getLostItems = async (req, res) => {
 const LostItem = require('../models/LostItem');
 const FoundItem = require('../models/FoundItem');
 const generateItemCode = require('../utils/generateItemCode');
+const User = require('../models/User');
 
 // GET Lost Items
 exports.getLostItems = async (req, res) => {
   try {
     const items = await LostItem.findAll({
+      include: [{ model: User, attributes: ['name'], as: 'user' }], // 👈 include user
       order: [['createdAt', 'DESC']]
+      
     });
     res.json(items);
   } catch (err) {
@@ -167,6 +170,7 @@ exports.getLostItems = async (req, res) => {
 exports.getFoundItems = async (req, res) => {
   try {
     const items = await FoundItem.findAll({
+      include: [{ model: User, attributes: ['name'], as: 'user' }],
       order: [['createdAt', 'DESC']]
     });
     res.json(items);
